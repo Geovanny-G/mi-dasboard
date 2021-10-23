@@ -1,0 +1,301 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: #eee;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-rows: 50px 180px 1fr;
+  height: 100vh;
+  width: 230px;
+  z-index: 10;
+  background-color: #222d32;
+  box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
+  -webkit-transition: left 0.5s ease,
+ width 0.5s ease;
+  -o-transition: left 0.5s ease,
+ width 0.5s ease;
+  transition: left 0.5s ease,
+ width 0.5s ease;
+ z-index: 100;
+}
+
+/*configurar el profile del usuario*/
+.app-sidebar__user{
+  display: flex;
+  position: relative;
+  flex-flow: column;
+  grid-gap: 6px 0;
+  align-items: center;
+  justify-content: center;
+  grid-row: 2/1 span;
+  /*align-self: center;*/
+  transition: border-bottom .3s .5s ease-in-out;
+  color: #fff;
+  border-bottom: 1px outset #ccc;
+
+}
+.app-sidebar__user-avatar{
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 50%;
+	transition: opacity .5s ease-in, width .5s .3s ease-in-out, height .5s .3s ease-in-out;
+	
+}
+
+.lagout{
+	position: absolute;
+	top: 50px;
+	right: 20px;
+	cursor: pointer;
+	transition: visibility .4s;
+	transition-delay: .4s;
+}
+.profile-titulo{
+	text-align: center;
+	transition: opacity .4s;
+	transition-delay: .6s;
+	pointer-events: auto;
+	visibility: visible;
+}
+.profile-name{
+	margin-right: 0;
+	transition: margin-right .5s .6s ease-in;
+}
+.profile-designation{
+	margin-left: 0;
+	transition: margin-left .5s .6s ease-in;
+}
+
+.nav-links{
+	display: flex;
+  flex-flow: column;
+  /*grid-gap: 10px 0;*/
+  grid-row: 3/1 span;
+  overflow: auto;
+}
+.sidebar .nav-links{
+	overflow: visible;
+}
+/*por si necesitamos el scroll*/
+.nav-links::-webkit-scrollbar{
+	display: none;
+}
+
+.nav-links li{
+	position: relative;
+	list-style: none;
+	/*transition: background-image .5s, border-radius .8s;*/
+}
+.sidebar .nav-links li:hover{
+	border-radius: 0 6px 6px 0;
+	cursor: pointer;
+	/*background-color: #0d1214;*/
+	background-image: linear-gradient(to right, #fd4 4px, #0d1214 5px);
+}
+
+.sidebar .nav-links li img{
+	height: 25px;
+	min-width: 25px;
+}
+.enlaces-flex{
+	display: flex;
+	padding: 12px 15px;
+	align-items: center;
+	grid-gap: 0 15px;
+	text-decoration: none;
+}
+
+.icon-flecha{
+	margin-left: auto;
+}
+
+.enlaces-flex .link-name{
+	/*font-family: ;*/
+	font-size: 18px;
+	font-weight: 700;
+	color: #b8c7ce;
+	transition: opacity .4s .2s;
+}
+
+/*submenu*/
+.sub-menu{
+	/*padding: 5px 6px 5px 40px;*/
+	/*display: none;*/
+	height: 0;
+	overflow: hidden;
+	transition: height .3s ease-in;
+	background-color: #1d1b31;
+}
+.sub-menu .sub-menu--items{
+	list-style: none;
+	padding: 9px 5px 7px 20px;
+	margin-left: 40px;
+	border-left: 2px solid #48e;
+}
+.sub-menu--enlaces{
+	font-size: 16px;
+	font-weight: 500;
+	text-decoration: none;
+	margin-left: 20px;
+	opacity: 0.6;
+	transition: opacity .3s ease-in;
+	color: #b8c7ce;
+}
+.sub-menu--enlaces:hover{
+	opacity: 1;
+	color: #fd4;
+}
+/*end submenu*/
+
+/*configurando los que no tienen submenu*/
+.sidebar .nav-links li:hover .sub-menu.blank{
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/*==cuando javascript le pase la clase close==*/
+.sidebar.close{
+	width: 55px;
+	display: grid;
+	grid-template-columns: 55px;
+	grid-template-rows: 50px 110px 1fr;
+}
+
+.sidebar.close .app-sidebar__user{
+	border: none;
+}
+.sidebar.close .profile-content{
+	align-self: center;
+}
+.sidebar.close .profile-titulo{
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+.sidebar.close .profile-name{
+	margin-right: 45px;
+}
+.sidebar.close .profile-designation{
+	margin-left: 45px;
+}
+.sidebar.close .app-sidebar__user-avatar{
+	width: 45px;
+	height: 45px;
+	margin: 0 auto;
+	cursor: pointer;
+	border-radius: 50%;
+	transition: width .4s .2s ease-in-out, height .4s .2s ease-in-out;
+}
+
+.sidebar.close .lagout{
+	/*opacity: 0;*/
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s .4s;
+	pointer-events: none;
+}
+.sidebar.close .icon-flecha{
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+}
+
+/*el submenu se muestra*/
+.sidebar.close .nav-links li:hover .sub-menu{
+	margin-top: 0;
+	opacity: 1;
+	pointer-events: auto;
+	/*transition: opacity .5s ease-in, margin-top .5s;*/
+}
+.sidebar.close .link-name{
+	opacity: 0;
+	/*display: block;*/
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity .4s .3s;
+}
+.sidebar.close .sub-menu .sub-menu--items{
+	padding: 10px 40px 10px 20px;
+	margin-left: 0;
+	border-left: none;
+	/*background-image: linear-gradient(to right, #0d1214 4px, #0d1214 5px);*/
+}
+
+.sidebar.close .sub-menu .enlace-principal{
+	display: block;
+	font-size: 18px;
+	line-height: 30px;
+	opacity: 1;
+}
+
+/*consiguracion del submenu*/
+.sidebar.close .nav-links li .sub-menu{
+	position: absolute;
+	top: 0;
+	left: 100%;
+	margin-top: -10px;
+	white-space: nowrap;
+	border-radius: 0 6px 6px 0;
+	transition: opacity .4s ease-in, margin-top .5s ease-in-out;
+	opacity: 0;
+	/*display: block;*/
+	/*overflow: visible;*/
+	height: auto;
+	pointer-events: none;
+}
+/*================end close====================*/
+
+/*animacion tomado con javascript*/
+.sidebar .nav-links li.showMenu .sub-menu{
+	display: block;
+}
+
+.icon-flecha{
+	transition: transform .3s ease-in, opacity .4s .4s;
+	visibility: visible;
+}
+.sidebar .nav-links li.showMenu .icon-flecha{
+	transform: rotate(90deg);
+}
+
+.active + .sub-menu{
+	display: block;
+	height: 105px;
+}
+
+.lista{
+	/*overflow: hidden;*/
+}
+.sidebar.close .lista{
+	/*overflow: visible;*/
+}
+.giro .icon-flecha{
+	transform: rotate(90deg);
+}
+
+/*menu*/
+.home-content{
+	position: relative;
+	height: 100vh;
+	width: calc(100% - 230px);
+	background-color: #e4e9f7;
+	left: 230px;
+	z-index: 10;
+	transition: left .8s, width .8s;
+}
+/*con javascript desplazamiento de la barra*/
+.sidebar.close ~ .home-content{
+	left: 55px;
+	width: calc(100% - 60px);
+}

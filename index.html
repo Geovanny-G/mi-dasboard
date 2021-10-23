@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="./Css/style.css">
+</head>
+<body>
+	
+	<aside class="sidebar">
+		<!-- cabecera del nav -->
+		<div class="app-sidebar__user">
+	        <picture class="profile-content">
+	            <!-- <img class="app-sidebar__user-avatar" src="<?= media(); ?>Images/avatar.png" alt="User Image"> -->
+	            <img class="app-sidebar__user-avatar" src="./assets/avatar.png" alt="profile">
+	        	<img class="lagout" src="./assets/lagout.svg" alt="salida">
+	        </picture>
+	        <div class="profile-titulo">
+	          <p class="profile-name">Henry Gonzalez</p>
+	          <p class="profile-designation">Administrador</p>
+        	</div>
+     	</div>
+     	<!-- enlaces -->
+     	<ul class="nav-links">
+     		<li class="lista">
+     			<a class="enlaces-flex" href="#">
+     				<img src="./assets/dashboard.svg" alt="dashboard">
+     				<span class="link-name">Dashboard</span>
+     			</a>
+     			<ul class="sub-menu blank">
+     				<li class="sub-menu--items">
+     					<a class="sub-menu--enlaces enlace-principal" href="#">Dashboard</a>
+     				</li>
+     			</ul>
+     		</li>
+
+     		<li class="lista">
+     			<div class="icon-link list__bottom">
+     				<a class="enlaces-flex" href="#">
+     				<img src="./assets/users.svg" alt="usuarios">	
+ 					<span class="link-name">Usuarios</span>
+ 					<img class="icon-flecha" src="./assets/arrow.svg" alt="flecha">
+     				</a>
+     			</div>
+     			<ul class="sub-menu">
+     				<li class="sub-menu--items">
+     					<a class="sub-menu--enlaces enlace-principal" href="#">Usuarios</a>
+     				</li>
+     				<li class="sub-menu--items">
+     					<a class="sub-menu--enlaces" href="#">Roles</a>
+     				</li>
+     				<li class="sub-menu--items">
+     					<a class="sub-menu--enlaces" href="#">Permisos</a>
+     				</li>
+     			</ul>
+     		</li>
+
+     		<li class="lista">
+     			<div class="icon-link list__bottom">
+     				<a class="enlaces-flex" href="#">
+     				<img src="./assets/cliente.svg" alt="clientes">	
+ 					<span class="link-name">Clientes</span>
+ 					<img class="icon-flecha" src="./assets/arrow.svg" alt="flecha">
+     				</a>
+     			</div>
+     			<ul class="sub-menu">
+     				<li class="sub-menu--items">
+     					<a class="sub-menu--enlaces enlace-principal" href="#">Clientes</a>
+     				</li>
+     				<li class="sub-menu--items">
+     					<a class="sub-menu--enlaces" href="#">Roles</a>
+     				</li>
+     				<li class="sub-menu--items">
+     					<a class="sub-menu--enlaces" href="#">Permisos</a>
+     				</li>
+     			</ul>
+     		</li>
+
+     		<li class="lista">
+     			<a class="enlaces-flex" href="#">
+     				<img src="./assets/producto.svg" alt="producto">
+     				<span class="link-name">Productos</span>
+     			</a>
+     			<ul class="sub-menu blank">
+     				<li class="sub-menu--items">
+     					<a class="sub-menu--enlaces enlace-principal" href="#">Productos</a>
+     				</li>
+     			</ul>
+     		</li>
+
+     		<li class="lista">
+     			<a class="enlaces-flex" href="#">
+     				<img src="./assets/carrito.svg" alt="pedidos">
+     				<span class="link-name">Pedidos</span>
+     			</a>
+     			<ul class="sub-menu blank">
+     				<li class="sub-menu--items">
+     					<a class="sub-menu--enlaces enlace-principal" href="#">Pedidos</a>
+     				</li>
+     			</ul>
+     		</li>
+
+     	</ul>
+	</aside>
+
+	<section class="home-content">
+		<img class="menu" src="./assets/menu.svg">
+	</section>
+	<script src="./Js/menu.js"></script>
+</body>
+</html>
