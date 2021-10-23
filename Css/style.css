@@ -285,6 +285,9 @@ body{
 }
 
 /*menu*/
+.menu{
+	cursor: pointer;
+}
 .home-content{
 	position: relative;
 	height: 100vh;
